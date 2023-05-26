@@ -1,4 +1,5 @@
 .featured-item {
   background-image: url("../../../assets/home/featured.jpg");
   color: white;
+  opacity: 90%;
 }
