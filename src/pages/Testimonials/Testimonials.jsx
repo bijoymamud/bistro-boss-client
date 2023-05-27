@@ -1,8 +1,8 @@
 import { Navigation } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 
-
 import '@smastrom/react-rating/style.css';
+import { FaQuoteLeft } from "react-icons/fa";
 
 // Import Swiper styles
 import { Rating } from "@smastrom/react-rating";
@@ -45,6 +45,7 @@ const Testimonials = () => {
                   value={review.rating}
                   readOnly
                 />
+                <FaQuoteLeft className="text-7xl mx-auto font-bold mt-5"></FaQuoteLeft>
                 <p className="text-xl italic mt-2">{review.details}</p>
                 <h3 className="text-2xl text-orange-500 font-bold mt-5">{review.name}</h3>
               </div>

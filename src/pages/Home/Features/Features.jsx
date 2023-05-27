@@ -5,7 +5,7 @@ import "./Features.css";
 
 const Features = () => {
   return (
-    <div className='featured-item text-white bg-opacity-40 bg-fixed  pt-8 my-20 ' >
+    <div className='featured-item text-white bg-opacity-40 bg-fixed  pt-14 my-20 ' >
       <SectionTitle
         subHeading="Check it out"
         heading="Featured Item"
