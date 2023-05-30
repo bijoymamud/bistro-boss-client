@@ -3,6 +3,7 @@ import {
 } from "react-router-dom";
 import Main from "../Layout/Main";
 import Home from "../pages/Home/Home/Home";
+import LogIn from "../pages/LogIn/LogIn";
 import Menu from "../pages/Menu/Menu/Menu";
 import Order from "../pages/Order/Order/Order";
 
@@ -22,6 +23,10 @@ export const router = createBrowserRouter([
       {
         path: 'order/:category',
         element: <Order></Order>
+      },
+      {
+        path: '/login',
+        element: <LogIn></LogIn>
       }
     ]
   },
