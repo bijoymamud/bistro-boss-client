@@ -1,4 +1,4 @@
-import React from 'react';
+
 
 const FoodCard = ({ item }) => {
   const { image, name, price, recipe } = item;

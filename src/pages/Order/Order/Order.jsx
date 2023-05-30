@@ -1,30 +1,38 @@
 import React, { useState } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { useParams } from 'react-router-dom';
 import { Tab, TabList, TabPanel, Tabs } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 import orderCover from '../../../assets/shop/banner2.jpg';
+
 import useMenu from '../../../hooks/UseMenu';
 import Cover from '../../Shared/Cover/Cover';
 import OrderTab from '../OrderTab/OrderTab';
 
-
 const Order = () => {
-  const [tabIndex, setTabIndex] = useState(0);
-  const [menu] = useMenu();
+  const categories = ['salad', 'pizza', 'soup', 'dessert', 'drinks'];
   const { category } = useParams();
-  console.log(category);
 
-  const desserts = menu.filter(item => item.category === "dessert");
-  const soup = menu.filter(item => item.category === "soup");
-  const salad = menu.filter(item => item.category === "salad");
-  const pizza = menu.filter(item => item.category === "pizza");
-  const drinks = menu.filter(item => item.category === "drinks");
+  const initialIndex = categories.indexOf(category);
+  const [tabIndex, setTabIndex] = useState(initialIndex);
+  const [menu] = useMenu();
+
+
+  const desserts = menu.filter(item => item.category === 'dessert');
+  const soup = menu.filter(item => item.category === 'soup');
+  const salad = menu.filter(item => item.category === 'salad');
+  const pizza = menu.filter(item => item.category === 'pizza');
+  const drinks = menu.filter(item => item.category === 'drinks');
+
+
   return (
     <div className='text-center '>
-      <Cover
-        img={orderCover}
-        title='Order Food'
-      ></Cover>
+
+      <Helmet>
+        <title>Bistro Boss | Order Food</title>
+      </Helmet>
+
+      <Cover img={orderCover} title="Order Food"></Cover>
 
       <Tabs defaultIndex={tabIndex} onSelect={(index) => setTabIndex(index)}>
         <TabList>
@@ -34,7 +42,6 @@ const Order = () => {
           <Tab>Dessert</Tab>
           <Tab>Drinks</Tab>
         </TabList>
-
 
         <TabPanel>
           <OrderTab items={salad}></OrderTab>
@@ -51,6 +58,7 @@ const Order = () => {
         <TabPanel>
           <OrderTab items={drinks}></OrderTab>
         </TabPanel>
+
       </Tabs>
     </div>
   );
