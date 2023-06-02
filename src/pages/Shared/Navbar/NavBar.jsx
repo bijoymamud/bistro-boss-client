@@ -18,17 +18,20 @@ const NavBar = () => {
     <li><Link to="/">Home</Link></li>
     <li tabIndex={0}><Link to="/menu">Our Menu</Link></li>
     <li><Link to="/order/salad"><a>Order Food</a></Link></li>
+    <li><Link to="/secret">Secret</Link></li>
+
 
 
     {
       user ?
         <>
-          <button onClick={handleLogOut} className="btn btn-ghost">Logout</button>
+          <Link onClick={handleLogOut} className="btn btn-ghost">Logout</Link>
         </> :
         <>
           <li><Link to="/login"><a>Login</a></Link></li>
         </>
     }
+
 
   </>
   return (
@@ -52,7 +55,12 @@ const NavBar = () => {
           </ul>
         </div>
         <div className="navbar-end">
-          <a className="btn">Get started</a>
+          {user &&
+
+            <button className="px-5">  <img className='w-10 h-10 rounded-full ring ring-warning ring-offset-base-100 ring-offset-2' src={user?.photoURL} alt="" /> </button>
+
+          }
+          <a className="btn glass text-white">Get started</a>
         </div>
       </div>
     </>
