@@ -1,7 +1,10 @@
 import {
   createBrowserRouter,
 } from "react-router-dom";
+
+import DashBoard from "../Layout/DashBoard/DashBoard";
 import Main from "../Layout/Main";
+import MyCart from "../pages/DashBoard/MyCart/MyCart";
 import Home from "../pages/Home/Home/Home";
 import LogIn from "../pages/LogIn/LogIn";
 import Menu from "../pages/Menu/Menu/Menu";
@@ -39,6 +42,17 @@ export const router = createBrowserRouter([
         path: '/secret',
         element: <PrivateRoute><Secret></Secret></PrivateRoute>
       }
-    ]
+    ],
+
   },
+  {
+    path: 'dashboard',
+    element: <DashBoard></DashBoard>,
+    children: [
+      {
+        path: 'mycart',
+        element: <MyCart></MyCart>
+      }
+    ]
+  }
 ]);
