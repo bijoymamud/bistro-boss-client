@@ -5,6 +5,7 @@ import { LoadCanvasTemplate, loadCaptchaEnginge, validateCaptcha } from 'react-s
 import { ToastContainer } from 'react-toastify';
 import Swal from 'sweetalert2';
 import { AuthContext } from '../../Provider/AuthProvider';
+import SocialLogin from '../Shared/Social Login/SocialLogin';
 
 
 
@@ -105,9 +106,9 @@ const LogIn = () => {
 
                   <input disabled={desabled} className="btn btn-primary" type="submit" value="Login" />
                 </div>
-                <p><small>New in Bistro Boss?<Link to="/signUp"><span className='underline px-2 font-semibold'>Create an account</span></Link></small></p>
+                <p className='text-center'><small >New in Bistro Boss?<Link to="/signUp"><span className='underline px-2 font-semibold'>Create an account</span></Link></small></p>
               </form>
-
+              <SocialLogin></SocialLogin>
             </div>
           </div>
         </div >

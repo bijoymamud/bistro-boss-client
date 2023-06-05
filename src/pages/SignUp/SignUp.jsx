@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../Provider/AuthProvider";
+import SocialLogin from "../Shared/Social Login/SocialLogin";
 
 
 
@@ -15,25 +16,42 @@ const SignUp = () => {
   const navigate = useNavigate();
 
   const onSubmit = data => {
-    console.log(data);
+
     createUser(data.email, data.password)
       .then(result => {
+
         const loggedUser = result.user;
         console.log(loggedUser);
 
         //for update profile
         updateUserProfile(data.name, data.photoURL)
           .then(() => {
-            console.log('User profile info updated');
-            reset();
-            Swal.fire({
-              position: 'center',
-              icon: 'success',
-              title: 'Profile Created',
-              showConfirmButton: false,
-              timer: 1500
+
+            //mongoDB te user create korar jnno
+            const saveUser = { name: data.name, email: data.email }
+            fetch('http://localhost:5000/users', {
+              method: "POST",
+              headers: {
+                'content-type': 'application/json'
+              },
+              body: JSON.stringify(saveUser)
             })
-            navigate('/');
+              .then(res => res.json(saveUser))
+              .then(data => {
+                if (data.insertedId) {
+                  reset();
+                  Swal.fire({
+                    position: 'center',
+                    icon: 'success',
+                    title: 'Profile Created',
+                    showConfirmButton: false,
+                    timer: 1500
+                  })
+                  navigate('/');
+                }
+              })
+
+
           })
           .catch(error => console.log(error))
       })
@@ -104,6 +122,7 @@ const SignUp = () => {
               </div>
               <p><small>Already Have an account? <span className="font-semibold px-2 underline"><Link to="/login ">Login Here</Link></span></small></p>
             </form>
+            <SocialLogin></SocialLogin>
           </div>
         </div>
       </div>

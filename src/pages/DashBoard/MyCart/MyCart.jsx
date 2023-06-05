@@ -39,14 +39,14 @@ const MyCart = () => {
   }
   return (
 
-    <div>
+    <div >
       <Helmet>
         <title>Bistro Boss | My cart</title>
         <link rel="canonical" href="" />
       </Helmet>
-      <div className='uppercase text-xl text-white font-semibold flex justify-evenly mb-10'>
-        <h3>total iteme:{cart.length}</h3>
-        <h3>total price: ${total}</h3>
+      <div className=' text-xl text-slate-300 font-semibold flex justify-between mb-10 w-full'>
+        <h3>Total Iteme: <span className='text-orange-400'>{cart.length}</span></h3>
+        <h3>Total Price: <span className='text-orange-400'>${total}</span></h3>
         <button className="btn btn-warning btn-sm">PAY</button>
       </div>
       <div className="overflow-x-auto">
