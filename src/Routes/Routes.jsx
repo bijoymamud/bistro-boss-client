@@ -4,6 +4,9 @@ import {
 
 import DashBoard from "../Layout/DashBoard/DashBoard";
 import Main from "../Layout/Main";
+import AllUsers from "../pages/DashBoard/Allusers/AllUsers";
+import ManageBookings from "../pages/DashBoard/ManageBookings/ManageBookings";
+import ManageItems from "../pages/DashBoard/ManageItems/ManageItems";
 import MyCart from "../pages/DashBoard/MyCart/MyCart";
 import Home from "../pages/Home/Home/Home";
 import LogIn from "../pages/LogIn/LogIn";
@@ -52,6 +55,18 @@ export const router = createBrowserRouter([
       {
         path: 'mycart',
         element: <MyCart></MyCart>
+      },
+      {
+        path: 'allusers',
+        element: <AllUsers></AllUsers>
+      },
+      {
+        path: 'manageitems',
+        element: <ManageItems></ManageItems>
+      },
+      {
+        path: 'managebookings',
+        element: <ManageBookings></ManageBookings>
       }
     ]
   }
